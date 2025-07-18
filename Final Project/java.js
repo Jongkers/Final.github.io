@@ -265,3 +265,42 @@ document.addEventListener("DOMContentLoaded", function () {
     showSlide(currentSlide);
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const aboutSlides = [
+      document.querySelector(".slide-one"),
+      document.querySelector(".slide-two"),
+      document.querySelector(".slide-three"),
+    ];
+
+    let aboutIndex = 0;
+
+    function showAboutSlide(index) {
+      aboutSlides.forEach((slide, i) => {
+        if (i === index) {
+          slide.classList.add("fade-in");
+          slide.classList.remove("fade-out");
+        } else {
+          slide.classList.remove("fade-in");
+          slide.classList.add("fade-out");
+        }
+      });
+    }
+
+    const aboutNext = document.getElementById("about-next");
+    const aboutPrev = document.getElementById("about-prev");
+
+    if (aboutNext && aboutPrev) {
+      aboutNext.addEventListener("click", () => {
+        aboutIndex = (aboutIndex + 1) % aboutSlides.length;
+        showAboutSlide(aboutIndex);
+      });
+
+      aboutPrev.addEventListener("click", () => {
+        aboutIndex = (aboutIndex - 1) % aboutSlides.length;
+        showAboutSlide(aboutIndex);
+      });
+    }
+
+    showAboutSlide(aboutIndex);
+  });
