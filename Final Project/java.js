@@ -189,7 +189,7 @@ const goRegister = document.getElementById("go-register");
 if (goRegister) {
   goRegister.addEventListener("click", (e) => {
     e.preventDefault();
-    index = 2; // 0=home, 1=login, 2=register
+    index = 2;
     updateCarousel();
   });
 }
@@ -198,12 +198,11 @@ const goLogin = document.getElementById("go-login");
 if (goLogin) {
   goLogin.addEventListener("click", (e) => {
     e.preventDefault();
-    index = 1; // 0=home, 1=login
+    index = 1; 
     updateCarousel();
   });
 }
 
-// Function to toggle between homepage and shop
 function toggleShop() {
   const homepage = document.getElementById('homepage-content');
   const shop = document.getElementById('shop-content');
@@ -222,7 +221,7 @@ function toggleShop() {
   }
 }
 
-// About page specific JavaScript
+
 document.addEventListener("DOMContentLoaded", function () {
   const slides = [
     document.querySelector(".slide-one"),
@@ -260,7 +259,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Only show the first slide initially if slides exist
+
   if (slides.length > 0) {
     showSlide(currentSlide);
   }
